@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>㈜ 정온홀딩스 - 회사소개</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(120deg, #004466, #0099cc);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      margin-right: 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      color: #004466;
+      margin-bottom: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+    }
+    footer {
+      background: #004466;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p {
+      margin: .3rem 0;
+    }
+    /* 스마트폰 메뉴 */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+      }
+      nav a {
+        margin: .5rem 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>㈜ 정온홀딩스</h1>
+    <span class="menu-toggle" onclick="toggleMenu()">☰ 메뉴</span>
+    <nav id="navMenu">
+      <a href="#intro">회사소개</a>
+      <a href="#business">사업분야</a>
+      <a href="#mission">기업 미션</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </header>
+
+  <section id="intro">
+    <h2>회사소개</h2>
+    <p>정온홀딩스는 건축 설계부터 시공, 인테리어, 에너지 절감형 고효율 난방 시스템과 공기 질 향상 필터 시스템까지 통합 솔루션을 제공하는 기업입니다. 지속 가능한 공간, 쾌적한 실내환경, 고객 맞춤형 디자인을 통해 더 나은 삶의 가치를 만들어갑니다.</p>
+  </section>
+
+  <section id="business">
+    <h2>사업분야</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>건축사업</h3>
+        <p>건축 설계 및 시공, 주거·상업공간 맞춤 설계, 공공시설 대형 프로젝트 경험 보유, 친환경 및 고효율 자재 사용.</p>
+      </div>
+      <div class="card">
+        <h3>인테리어 디자인 & 시공</h3>
+        <p>상업·주거 인테리어, 브랜드 아이덴티티 반영, 3D 설계 시뮬레이션, 공정관리 및 A/S 지원.</p>
+      </div>
+      <div class="card">
+        <h3>난방 시스템</h3>
+        <p>전기·유체온열 기반 고효율 난방, 바닥난방·스마트 온도제어, 에너지 절감 및 정부 보조금 연계.</p>
+      </div>
+      <div class="card">
+        <h3>공기 정화 & 필터 시스템</h3>
+        <p>HEPA/탄소필터 적용, 미세먼지·바이러스 제거, 자동 공기질 감지·제어 스마트 환기 시스템.</p>
+      </div>
+      <div class="card">
+        <h3>대기업 태양광 솔루션</h3>
+        <p>에너지 절약형 태양광 설비 설치 및 맞춤 솔루션 제공.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <h2>기업 미션</h2>
+    <blockquote>
+      “건축을 넘어, 사람과 환경을 생각합니다.”
+    </blockquote>
+    <p>정온홀딩스는 단순한 공간의 완성이 아닌, 쾌적하고 지속 가능한 삶의 터전을 만들기 위해 노력합니다.</p>
+  </section>
+
+  <section id="contact">
+    <h2>연락처</h2>
+    <p>대표이사 : 김재환 최고 경영자 컨설턴트</p>
+    <p>주소 : 서울시 노원구 노해로 491, 4층 4237호 (상계동 중앙빌딩)</p>
+    <p>전화번호 : 070-7788-3388</p>
+    <p>이메일 : <a href="mailto:hhk_718@naver.com">hhk_718@naver.com</a></p>
+  </section>
+
+  <footer>
+    <p>㈜ 정온홀딩스</p>
+    <p>© 2025 Jeongon Holdings All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>

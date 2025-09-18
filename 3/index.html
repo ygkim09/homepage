@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>정온홀딩스 | 종합건축 & 환경 솔루션</title>
+  <meta name="description" content="건축 설계·시공, 인테리어, 고효율 난방, 공기 정화 필터, 대기업 태양광 설치까지 통합 솔루션을 제공하는 정온홀딩스" />
+  <meta property="og:title" content="정온홀딩스 | 종합건축 & 환경 솔루션" />
+  <meta property="og:description" content="지속 가능한 공간과 쾌적한 실내환경을 만드는 통합 솔루션" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 세련된 가독성을 위한 폰트 조합 -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f172a;
+      --muted:#a5b4fc;
+      --text:#e5e7eb;
+      --soft:#94a3b8;
+      --accent:#60a5fa;
+      --line:#1f2a44;
+      --focus:#c7d2fe;
+      --white:#ffffff;
+      --black:#000000;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0f1e 0%,#0c1224 100%);color:var(--text);font-family:'Pretendard','Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px,92%);margin:0 auto}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:14px;border:1px solid transparent;background:linear-gradient(180deg,#60a5fa,#3b82f6);color:#fff;font-weight:600;box-shadow:0 10px 24px rgba(59,130,246,.35);transition:transform .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(59,130,246,.45)}
+    .btn.ghost{background:transparent;border-color:#334155;color:var(--text);box-shadow:none}
+    .btn.ghost:hover{border-color:#64748b;background:rgba(100,116,139,.08)}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.6);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid #1b2540}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800;letter-spacing:.2px}
+    .brand-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 100%);box-shadow:0 6px 18px rgba(96,165,250,.5)}
+    .menu{display:flex;gap:1.2rem;align-items:center}
+    .menu a{padding:.55rem .8rem;border-radius:10px;color:#cbd5e1}
+    .menu a:hover{background:#141c34;color:var(--white)}
+    .hamburger{display:none;flex-direction:column;gap:6px}
+    .hamburger span{width:26px;height:2px;background:#cbd5e1;border-radius:2px;transition:.2s}
+
+    /* Mobile menu */
+    .mobile-menu{display:none;flex-direction:column;gap:.4rem;padding:.6rem 0;border-top:1px solid #1b2642}
+    .mobile-menu a{padding:.8rem;border-radius:10px;color:#cbd5e1}
+    .mobile-menu a:hover{background:#141c34;color:#fff}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:96px 0 72px}
+    .hero-bg{
+      position:absolute;inset:-10%;pointer-events:none;opacity:.35;
+      background:
+        radial-gradient(800px 800px at 15% 10%, rgba(96,165,250,.35), transparent 60%),
+        radial-gradient(700px 700px at 85% 20%, rgba(167,139,250,.28), transparent 60%),
+        radial-gradient(900px 900px at 50% 80%, rgba(34,197,94,.18), transparent 60%);
+      filter:blur(40px);
+    }
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+    .kicker{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .headline{font-size:clamp(28px,5vw,48px);line-height:1.15;font-weight:800;margin:.6rem 0 1.1rem}
+    .sub{color:#cbd5e1;line-height:1.7;max-width:64ch}
+    .cta{margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap}
+    .card-visual{background:linear-gradient(180deg,#0f172a,#0b1226);border:1px solid #1e2a47;border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .chip{position:absolute;top:14px;right:14px;background:rgba(96,165,250,.1);color:#93c5fd;border:1px solid #2b4576;padding:.35rem .6rem;border-radius:999px;font-size:.8rem}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.8rem}
+    .stat{background:#0b142c;border:1px solid #1c2746;padding:1rem;border-radius:12px;text-align:center}
+    .stat .num{font-size:1.4rem;font-weight:800;color:#93c5fd}
+    .stat .cap{font-size:.8rem;color:#93a0b8}
+
+    /* Section */
+    section{padding:72px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:28px}
+    .section-title{font-size:clamp(22px,3.6vw,34px);font-weight:800}
+    .section-desc{color:#b6c2d3;max-width:70ch}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .about-card{background:linear-gradient(180deg,#0f172a,#0c1328);border:1px solid #1f2b49;border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow)}
+    .about-list{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.6rem}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;background:#0c1734;border:1px solid #203154;padding:.55rem .7rem;border-radius:12px;color:#b6c2d3;font-size:.92rem}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .svc-card{grid-column:span 6;background:linear-gradient(180deg,#0f172a,#0b1226);border:1px solid #1f2b49;border-radius:18px;padding:1rem;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+    .svc-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+    .svc-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#60a5fa,#a78bfa);display:grid;place-items:center;margin-bottom:.6rem;box-shadow:0 10px 20px rgba(96,165,250,.35)}
+    .svc-title{font-weight:800;font-size:1.2rem;margin:.2rem 0 .4rem}
+    .svc-desc{color:#b8c4d6}
+    .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+    .tag{font-size:.78rem;color:#9fb1cc;border:1px dashed #2a3a60;border-radius:999px;padding:.28rem .55rem;background:#0b162f}
+    .svc-acc{margin-top:.7rem;border-top:1px solid #1e2a47}
+    .svc-acc button{width:100%;text-align:left;padding:.75rem 0;color:#cbd5e1;background:none;border:none;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .svc-acc .panel{max-height:0;overflow:hidden;transition:max-height .28s ease}
+    .svc-acc .panel p{color:#9fb1cc;margin:.4rem 0 .8rem}
+
+    /* Mission */
+    .mission{display:grid;grid-template-columns:.9fr 1.1fr;gap:1rem}
+    .quote{font-size:1.15rem;font-weight:700;color:#dbeafe;background:linear-gradient(180deg,rgba(96,165,250,.12),rgba(59,130,246,.06));border:1px solid #22325b;padding:1rem;border-radius:16px}
+    .mission-card{background:linear-gradient(180deg,#0f172a,#0b1226);border:1px solid #1f2b49;border-radius:16px;padding:1rem;color:#cbd5e1}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .contact-card{background:#0f172a;border:1px solid #1f2b49;border-radius:16px;padding:1rem}
+    .info-row{display:grid;grid-template-columns:120px 1fr;gap:.6rem;padding:.6rem 0;border-bottom:1px dashed #203054}
+    .info-row:last-child{border-bottom:none}
+    .copy{display:inline-flex;gap:.5rem;align-items:center;margin-left:.6rem;padding:.36rem .6rem;border-radius:999px;border:1px solid #28406d;background:#0c1633;color:#a9c4ff;font-size:.82rem;cursor:pointer}
+    .map{height:280px;border-radius:14px;border:1px solid #1f2b49;overflow:hidden}
+
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid #1b2642;color:#98a3b6}
+    .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .foot .mini{font-size:.9rem}
+
+    /* Reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .mission{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width:900px){
+      .services{grid-template-columns:1fr}
+      .svc-card{grid-column:span 12}
+    }
+    @media (max-width:760px){
+      .menu{display:none}
+      .hamburger{display:flex}
+      .headline{font-size:clamp(26px,7vw,40px)}
+      .stat-row{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:1.02rem">정온홀딩스</div>
+          <div style="font-size:.78rem;color:#94a3b8">종합건축 & 환경 솔루션</div>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#about">회사소개</a>
+        <a href="#services">사업분야</a>
+        <a href="#mission">미션</a>
+        <a href="#contact">연락처</a>
+        <a class="btn" href="#contact">문의하기</a>
+      </div>
+      <button class="hamburger" aria-label="메뉴 열기" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#about">회사소개</a>
+      <a href="#services">사업분야</a>
+      <a href="#mission">미션</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">㈜ 정온홀딩스</div>
+        <h1 class="headline">종합건축 & 환경 솔루션 기업</h1>
+        <p class="sub">
+          정온홀딩스는 건축 설계부터 시공, 인테리어, 에너지 절감형 고효율 난방 시스템,
+          공기 질 향상을 위한 필터 시스템, 태양광 설치까지 통합 솔루션을 제공하는 전문 기업입니다.
+          지속 가능한 공간, 쾌적한 실내환경, 고객 맞춤형 디자인을 통해 더 나은 삶의 가치를 만들어갑니다.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#services">사업분야 보기</a>
+          <a class="btn ghost" href="#contact">상담 요청</a>
+        </div>
+      </div>
+      <div class="card-visual reveal">
+        <div class="chip">Sustainable Design</div>
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1400&auto=format&fit=crop" alt="현대적 건축 외관" style="border-radius:12px;border:1px solid #223158">
+        <div class="stat-row">
+          <div class="stat">
+            <div class="num" data-count="120">0</div>
+            <div class="cap">프로젝트</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="35">0</div>
+            <div class="cap">파트너</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="18">0</div>
+            <div class="cap">연차 경험</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">회사소개</h2>
+        <p class="section-desc">설계-시공-운영까지 연결된 원스톱 구조로, 정확한 일정과 품질을 보장합니다.</p>
+      </div>
+      <div class="about">
+        <div class="about-card reveal">
+          <h3 style="margin:0 0 .4rem;font-size:1.05rem;color:#c7d2fe">우리가 하는 일</h3>
+          <p>
+            건축 설계 및 시공, 인테리어 디자인, 고효율 난방 시스템, 공기 정화 필터, 대기업 태양광 설치를
+            유기적으로 통합하여 고객의 목표와 예산, 운영 환경에 최적화된 솔루션을 제공합니다.
+          </p>
+          <div class="about-list">
+            <div class="pill">맞춤형 설계</div>
+            <div class="pill">친환경 자재</div>
+            <div class="pill">에너지 효율</div>
+            <div class="pill">토탈 케어</div>
+          </div>
+        </div>
+        <div class="about-card reveal">
+          <h3 style="margin:0 0 .4rem;font-size:1.05rem;color:#c7d2fe">핵심 가치</h3>
+          <p>지속가능성, 안전성, 미학, 운영 효율을 균형 있게 구현해 더 나은 일상과 비즈니스 성과를 만듭니다.</p>
+          <ul style="margin:.4rem 0 0;padding-left:1.1rem;color:#b6c2d3">
+            <li>탄소배출 저감 건축자재 채택</li>
+            <li>스마트 제어 기반 설비 운영</li>
+            <li>투명한 공정관리와 A/S 지원</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">사업분야</h2>
+        <p class="section-desc">설계-시공-설비-운영을 하나로 묶어, 비용과 시간을 절감하고 성능을 극대화합니다.</p>
+      </div>
+
+      <div class="services">
+        <!-- 1. 건축사업 -->
+        <article class="svc-card reveal">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- building icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M3 22h18v-2H3v2zm2-4h14V3H5v15zm2-2V5h10v11H7z"/></svg>
+          </div>
+          <h3 class="svc-title">건축사업</h3>
+          <p class="svc-desc">주거·상업·업무 공간 맞춤형 설계와 공공시설·대형 프로젝트 시공 경험을 바탕으로 토탈 케어를 제공합니다.</p>
+          <div class="svc-tags">
+            <span class="tag">맞춤형 설계</span><span class="tag">친환경 자재</span><span class="tag">고효율 구조</span>
+          </div>
+          <div class="svc-acc">
+            <button aria-expanded="false">자세히 보기
+              <span>＋</span>
+            </button>
+            <div class="panel">
+              <p>친환경 건축 자재 사용과 에너지 효율을 고려한 고효율 구조 설계로 유지비를 절감합니다.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 인테리어 -->
+        <article class="svc-card reveal">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- interior icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M3 21h18v-2H3v2zM3 3h18v10H3V3zm2 2v6h14V5H5z"/></svg>
+          </div>
+          <h3 class="svc-title">인테리어 디자인 & 시공</h3>
+          <p class="svc-desc">브랜드 아이덴티티를 살린 상업공간, 트렌드와 실용성을 반영한 주거공간을 3D 시뮬레이션과 함께 제공합니다.</p>
+          <div class="svc-tags">
+            <span class="tag">상업/주거</span><span class="tag">3D 시뮬레이션</span><span class="tag">One-stop</span>
+          </div>
+          <div class="svc-acc">
+            <button aria-expanded="false">자세히 보기
+              <span>＋</span>
+            </button>
+            <div class="panel">
+              <p>설계에서 시공까지 원스톱으로 진행하며, 공정관리와 A/S까지 책임집니다.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 난방 시스템 -->
+        <article class="svc-card reveal">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- heating icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M6 2v20h2V2H6zm5 0v20h2V2h-2zm5 0v20h2V2h-2z"/></svg>
+          </div>
+          <h3 class="svc-title">난방 시스템</h3>
+          <p class="svc-desc">전기 기반 친환경 난방, 유체온열 시스템, 바닥 난방·온수 보일러·스마트 온도 제어까지 에너지 절감 솔루션을 제공합니다.</p>
+          <div class="svc-tags">
+            <span class="tag">스마트 제어</span><span class="tag">단열 효율</span><span class="tag">보조금 연계</span>
+          </div>
+          <div class="svc-acc">
+            <button aria-expanded="false">자세히 보기
+              <span>＋</span>
+            </button>
+            <div class="panel">
+              <p>건물 단열 효율을 극대화하고, 정부 보조금 연계를 지원합니다.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. 공기 정화 & 필터 시스템 -->
+        <article class="svc-card reveal">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- air filter icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M2 6h20v2H2V6zm0 5h20v2H2v-2zm0 5h20v2H2v-2z"/></svg>
+          </div>
+          <h3 class="svc-title">공기 정화 & 필터 시스템</h3>
+          <p class="svc-desc">HEPA·탄소필터로 바이러스·미세먼지·유해가스를 저감하고, 자동 감지·환기 제어로 실내 공기질을 개선합니다.</p>
+          <div class="svc-tags">
+            <span class="tag">HEPA/Carbon</span><span class="tag">스마트 환기</span><span class="tag">맞춤형</span>
+          </div>
+          <div class="svc-acc">
+            <button aria-expanded="false">자세히 보기
+              <span>＋</span>
+            </button>
+            <div class="panel">
+              <p>대기업·병원·학교·가정 등 용도별 특화 설계를 제공합니다.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. 대기업 태양광 솔루션 설치 -->
+        <article class="svc-card reveal">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- solar icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5h2v4h-2V2zM12 19h2v4h-2v-4zM2 11h4v2H2v-2zm16 0h4v2h-4v-2zM4.2 4.2l1.4-1.4 2.8 2.8-1.4 1.4L4.2 4.2zm11.4 11.4l1.4-1.4 2.8 2.8-1.4 1.4-2.8-2.8zM4.2 19.8l2.8-2.8 1.4 1.4-2.8 2.8-1.4-1.4zm11.4-11.4l2.8-2.8 1.4 1.4-2.8 2.8-1.4-1.4z"/></svg>
+          </div>
+          <h3 class="svc-title">대기업 태양광 솔루션 설치</h3>
+          <p class="svc-desc">산업·상업 시설의 대규모 설비에 최적화된 설계·시공·모니터링으로 에너지 비용을 절감합니다.</p>
+          <div class="svc-tags">
+            <span class="tag">산업용</span><span class="tag">모듈 최적화</span><span class="tag">O&M</span>
+          </div>
+          <div class="svc-acc">
+            <button aria-expanded="false">자세히 보기
+              <span>＋</span>
+            </button>
+            <div class="panel">
+              <p>수익성 분석부터 유지보수(O&M)까지 전 과정을 동행합니다.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">기업 미션</h2>
+        <p class="section-desc">건축을 넘어, 사람과 환경을 위한 지속 가능한 터전을 만듭니다.</p>
+      </div>
+      <div class="mission">
+        <div class="quote reveal">
+          “건축을 넘어, 사람과 환경을 생각합니다.”
+          <div style="margin-top:.6rem;color:#9fb1cc;font-weight:500">
+            정온홀딩스는 단순한 공간의 완성이 아닌, 쾌적하고 지속 가능한 삶의 터전을 만들기 위해 노력합니다.
+          </div>
+        </div>
+        <div class="mission-card reveal">
+          <h3 style="margin:.2rem 0 .6rem;color:#c7d2fe">지속가능성과 삶의 질</h3>
+          <p>운영비 절감, 건강한 실내환경, 그리고 차별화된 디자인으로 공간의 가치를 극대화합니다.</p>
+          <ul style="margin:.4rem 0 0;padding-left:1.1rem;color:#b6c2d3">
+            <li>에너지 성능 향상과 탄소 저감</li>
+            <li>스마트 설비로 안정적 운영</li>
+            <li>브랜드·거주자 경험 강화</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">연락처</h2>
+        <p class="section-desc">프로젝트 상담이 필요하시면 아래 연락처로 문의해 주세요.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-card reveal" aria-labelledby="contact-info">
+          <h3 id="contact-info" style="margin:0 0 .6rem;color:#c7d2fe">회사 정보</h3>
+          <div class="info-row">
+            <div>대표이사</div>
+            <div>김재환 최고 경영자 컨설턴트</div>
+          </div>
+          <div class="info-row">
+            <div>주소</div>
+            <div>서울시 노원구 노해로 491, 4층 4237호(상계동 중앙빌딩)</div>
+          </div>
+          <div class="info-row">
+            <div>전화</div>
+            <div>
+              070-7788-3388
+              <button class="copy" data-copy="070-7788-3388" aria-label="전화번호 복사">복사</button>
+            </div>
+          </div>
+          <div class="info-row">
+            <div>홈페이지</div>
+            <div>
+              (추가 예정)
+            </div>
+          </div>
+          <div class="info-row">
+            <div>이메일</div>
+            <div>
+              hhk_718@naver.com
+              <button class="copy" data-copy="hhk_718@naver.com" aria-label="이메일 복사">복사</button>
+            </div>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <h3 style="margin:0 0 .6rem;color:#c7d2fe">위치 안내</h3>
+          <div class="map">
+            <!-- 간단한 지도 임베드(구글맵 등으로 교체 가능) -->
+            <iframe
+              title="정온홀딩스 위치"
+              width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EB%85%B8%EC%9B%90%EA%B5%AC%20%EB%85%B8%ED%95%B4%EB%A1%9C%20491&output=embed">
+            </iframe>
+          </div>
+          <div style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap">
+            <a class="btn ghost" href="tel:070-7788-3388">전화 걸기</a>
+            <a class="btn ghost" href="mailto:hhk_718@naver.com?subject=%5B%EC%A0%95%EC%98%A8%ED%99%80%EB%94%A9%EC%8A%A4%5D%20%EB%AC%B8%EC%9D%98">이메일 보내기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div class="mini">© <span id="year"></span> 정온홀딩스. All rights reserved.</div>
+      <div class="mini">사업자 등록 및 개인정보처리방침은 추후 업데이트됩니다.</div>
+    </div>
+  </footer>
+
+  <script>
+    // 현재 연도
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 모바일 메뉴 토글
+    const hb = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hb.addEventListener('click', ()=>{
+      const open = mobileMenu.style.display === 'flex';
+      mobileMenu.style.display = open ? 'none' : 'flex';
+      hb.setAttribute('aria-expanded', String(!open));
+    });
+    // 모바일 메뉴 클릭 시 닫기
+    mobileMenu.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=> mobileMenu.style.display = 'none');
+    });
+
+    // 스크롤 리빌
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // 숫자 카운트업
+    const nums = document.querySelectorAll('.num');
+    const ioNum = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el = e.target;
+        const to = parseInt(el.dataset.count,10) || 0;
+        let cur = 0;
+        const step = Math.max(1, Math.round(to/80));
+        const tick = () => {
+          cur += step;
+          if(cur >= to){ el.textContent = to.toLocaleString(); return; }
+          el.textContent = cur.toLocaleString();
+          requestAnimationFrame(tick);
+        };
+        tick();
+        ioNum.unobserve(el);
+      });
+    },{threshold:.5});
+    nums.forEach(n=>ioNum.observe(n));
+
+    // 아코디언
+    document.querySelectorAll('.svc-acc').forEach(acc=>{
+      const btn = acc.querySelector('button');
+      const panel = acc.querySelector('.panel');
+      btn.addEventListener('click', ()=>{
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.querySelector('span').textContent = expanded ? '＋' : '－';
+        panel.style.maxHeight = expanded ? '0px' : panel.scrollHeight + 'px';
+      });
+    });
+
+    // 복사 버튼
+    document.querySelectorAll('.copy').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const val = btn.dataset.copy || '';
+        try{
+          await navigator.clipboard.writeText(val);
+          const prev = btn.textContent;
+          btn.textContent = '복사됨';
+          setTimeout(()=> btn.textContent = prev, 1200);
+        }catch(e){
+          alert('복사에 실패했습니다. 길게 눌러 복사해주세요.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

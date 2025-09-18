@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>㈜ 정온홀딩스 - 종합건축 & 환경 솔루션 기업</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 기본 스타일 및 변수 */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2e86c1;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        /* 헤더 및 네비게이션 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* 히어로 섹션 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .hero-btn {
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        /* 회사 소개 */
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* 사업분야 */
+        .business {
+            background-color: white;
+        }
+        
+        .business-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .business-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .business-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .business-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .business-content {
+            padding: 20px;
+        }
+        
+        .business-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .business-content ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .business-content li {
+            list-style-type: disc;
+            margin-bottom: 8px;
+        }
+        
+        /* 미션 섹션 */
+        .mission {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mission-content blockquote {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .mission-content blockquote::before,
+        .mission-content blockquote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mission-content blockquote::before {
+            left: -10px;
+            top: -20px;
+        }
+        
+        .mission-content blockquote::after {
+            right: -10px;
+            bottom: -40px;
+        }
+        
+        /* 연락처 섹션 */
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* 푸터 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background-color: white;
+                width: 250px;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-content blockquote {
+                font-size: 1.5rem;
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .business-img {
+                height: 150px;
+                font-size: 2rem;
+            }
+            
+            .mission-content blockquote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 및 네비게이션 -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">정온홀딩스</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#about">회사소개</a></li>
+                    <li><a href="#business">사업분야</a></li>
+                    <li><a href="#mission">기업미션</a></li>
+                    <li><a href="#contact">연락처</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>종합건축 & 환경 솔루션 기업</h1>
+            <p>지속 가능한 공간, 쾌적한 실내환경, 고객 맞춤형 디자인</p>
+            <a href="#business" class="btn hero-btn">사업분야 알아보기</a>
+        </div>
+    </section>
+
+    <!-- 회사 소개 섹션 -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">회사소개</h2>
+            <div class="about-content fade-in">
+                <p>㈜ 정온홀딩스는 건축 설계부터 시공, 인테리어, 에너지 절감형 고효율 난방 시스템, 공기 질 향상을 위한 필터 시스템, 까지 통합 솔루션을 제공하는 전문 기업입니다.</p>
+                <p>지속 가능한 공간, 쾌적한 실내환경, 고객 맞춤형 디자인을 통해 더 나은 삶의 가치를 만들어갑니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 사업분야 섹션 -->
+    <section id="business" class="section business">
+        <div class="container">
+            <h2 class="section-title">사업분야 소개</h2>
+            <div class="business-container">
+                <!-- 건축사업 -->
+                <div class="business-card fade-in">
+                    <div class="business-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="business-content">
+                        <h3>건축사업</h3>
+                        <p>건축 설계 및 시공 / 토탈 케어</p>
+                        <ul>
+                            <li>주거, 상업, 업무 공간의 맞춤형 설계</li>
+                            <li>공공시설 및 대형 프로젝트 시공 경험 보유</li>
+                            <li>친환경 건축 자재 사용</li>
+                            <li>탄소배출 저감 건축자재 채택</li>
+                            <li>에너지 효율을 고려한 고효율 구조 설계</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 인테리어 디자인 & 시공 -->
+                <div class="business-card fade-in">
+                    <div class="business-img">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="business-content">
+                        <h3>인테리어 디자인 & 시공</h3>
+                        <p>상업공간 / 주거공간 인테리어</p>
+                        <ul>
+                            <li>브랜드 아이덴티티를 살리는 상업 인테리어</li>
+                            <li>트렌드와 실용성을 반영한 주거 인테리어</li>
+                            <li>설계에서 시공까지 One-stop 서비스</li>
+                            <li>3D 설계 시뮬레이션 제공</li>
+                            <li>공정관리 및 A/S 지원</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 난방 시스템 -->
+                <div class="business-card fade-in">
+                    <div class="business-img">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="business-content">
+                        <h3>난방 시스템</h3>
+                        <p>고효율 난방 솔루션</p>
+                        <ul>
+                            <li>전기 기반 친환경 난방시스템, 유체온열 난방시스템</li>
+                            <li>바닥 난방, 온수 보일러, 스마트 온도 제어시스템</li>
+                            <li>에너지 절감 설비</li>
+                            <li>건물의 단열 효율 극대화</li>
+                            <li>정부 보조금 연계 사업 지원</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 공기 정화 & 필터 시스템 -->
+                <div class="business-card fade-in">
+                    <div class="business-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="business-content">
+                        <h3>공기 정화 & 필터 시스템</h3>
+                        <p>실내 공기질 개선 솔루션</p>
+                        <ul>
+                            <li>고성능 공기필터(HEPA, 탄소필터 등) 바이러스 항균 차단 설치</li>
+                            <li>냄새, 유해가스, 미세먼지, 바이러스 제거 시스템</li>
+                            <li>스마트 환기 시스템</li>
+                            <li>자동 공기질 감지 및 환기 제어</li>
+                            <li>대기업, 병원, 학교, 가정용 맞춤형 특화시스템 제공</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기업 미션 섹션 -->
+    <section id="mission" class="section mission">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">기업 미션</h2>
+            <div class="mission-content fade-in">
+                <blockquote>"건축을 넘어, 사람과 환경을 생각합니다."</blockquote>
+                <p>정온홀딩스는 단순한 공간의 완성이 아닌, 쾌적하고 지속 가능한 삶의 터전을 만들기 위해 노력합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">연락처</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h3>대표이사</h3>
+                            <p>김재환 최고 경영자 컨설턴트</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>주소</h3>
+                            <p>서울시 노원구 노해로 491, 4층 4237호(상계동 중앙빌딩)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>전화번호</h3>
+                            <p>070-7788-3388</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>이메일</h3>
+                            <p>hhk_718@naver.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2023 ㈜ 정온홀딩스. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 네비게이션 메뉴 토글
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // 네비게이션 메뉴 링크 클릭 시 메뉴 닫기
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = 'var(--shadow)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+        
+        // 스크롤 애니메이션
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const elementInView = (el, scrollOffset = 0) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= 
+                (window.innerHeight || document.documentElement.clientHeight) * 0.9
+            );
+        };
+        
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+        
+        const handleScrollAnimation = () => {
+            fadeElements.forEach((el) => {
+                if (elementInView(el, 100)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+        
+        // 초기 로드 시 애니메이션 트리거
+        window.onload = () => {
+            handleScrollAnimation();
+        };
+        
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
